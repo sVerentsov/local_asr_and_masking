@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Установка транскрибатора на macOS (Apple Silicon) и Linux без прав администратора.
-#   curl -fsSL <домен>/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/sVerentsov/local_asr_and_masking/main/install/install.sh | bash
 # Повторный запуск безопасен: выполненные шаги пропускаются.
 set -euo pipefail
 
