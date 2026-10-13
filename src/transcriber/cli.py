@@ -197,10 +197,23 @@ def main(argv: list[str] | None = None) -> None:
 
 def app_main() -> None:
     """Точка входа запускалки: поднимает сервер (или открывает вкладку, если он уже работает)."""
+    import logging
+    import os
+
+    # Запуск из ярлыка Windows (pythonw) идёт без консоли: sys.stdout и sys.stderr равны None.
+    if sys.stdout is None:
+        sys.stdout = open(os.devnull, "w", encoding="utf-8")  # noqa: SIM115
+    if sys.stderr is None:
+        sys.stderr = open(os.devnull, "w", encoding="utf-8")  # noqa: SIM115
     enforce_offline()
     from transcriber.web.app import serve
 
-    serve(open_browser=True)
+    try:
+        serve(open_browser=True)
+    except Exception as e:
+        logging.getLogger("transcriber").critical("Сервер не запустился: %s", type(e).__name__,
+                                                  exc_info=True, extra={"safe": True})
+        raise
 
 
 if __name__ == "__main__":

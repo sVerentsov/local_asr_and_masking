@@ -103,3 +103,14 @@ def test_settings_and_delete(client):
     case = client.post("/api/cases", json={"name": "x"}, headers=H).json()
     assert client.delete(f"/api/cases/{case['id']}", headers=H).status_code == 200
     assert client.get("/api/cases").json() == []
+
+
+def test_server_config_without_console(monkeypatch):
+    """Ярлык Windows запускает приложение через pythonw: sys.stderr равен None, uvicorn не должен падать."""
+    import sys
+
+    import uvicorn
+
+    monkeypatch.setattr(sys, "stderr", None)
+    monkeypatch.setattr(sys, "stdout", None)
+    uvicorn.Config(web.app, host="127.0.0.1", port=7999, log_level="warning", access_log=False, log_config=None)

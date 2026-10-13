@@ -584,7 +584,9 @@ def serve(port: int | None = None, open_browser: bool = True, store_path: Path |
         return
     S.port = port
     S.store = Store(store_path or db_path())
-    config = uvicorn.Config(app, host=HOST, port=port, log_level="warning", access_log=False)
+    # log_config=None: логирование настроено в setup_logging (файл без ПД). Консольные обработчики uvicorn
+    # ломаются при запуске из ярлыка без консоли, где sys.stderr равен None.
+    config = uvicorn.Config(app, host=HOST, port=port, log_level="warning", access_log=False, log_config=None)
     server = uvicorn.Server(config)
     S.server = server
     if open_browser:
