@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Транскрибатор</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="auth" class="auth hidden">
+  <form id="auth-form" class="auth-card">
+    <h1>Транскрибатор</h1>
+    <p id="auth-hint"></p>
+    <input id="auth-password" type="password" autocomplete="current-password" placeholder="Пароль" required minlength="8">
+    <input id="auth-password2" type="password" autocomplete="new-password" placeholder="Повторите пароль" class="hidden">
+    <p id="auth-warning" class="warning hidden">Пароль нельзя восстановить. Если вы его забудете, словари соответствий всех дел будут потеряны, и вернуть данные в ответы Claude станет невозможно.</p>
+    <button type="submit" class="primary" id="auth-submit">Войти</button>
+    <p id="auth-error" class="error"></p>
+  </form>
+</div>
+
+<header class="top">
+  <div class="brand">Транскрибатор</div>
+  <nav>
+    <button data-tab="cases" class="tab active">Дела</button>
+    <button data-tab="unmask" class="tab">Вернуть данные</button>
+    <button data-tab="settings" class="tab">Настройки</button>
+  </nav>
+  <div class="top-actions">
+    <button id="btn-lock" title="Заблокировать">Заблокировать</button>
+    <button id="btn-shutdown" class="danger-outline" title="Остановить сервер">Выключить</button>
+  </div>
+</header>
+
+<main>
+  <section id="view-cases" class="view">
+    <aside class="sidebar">
+      <form id="new-case" class="new-case">
+        <input id="new-case-name" placeholder="Название нового дела">
+        <button class="primary" type="submit">Создать</button>
+      </form>
+      <ul id="case-list" class="case-list"></ul>
+    </aside>
+    <div id="case-detail" class="content"><p class="muted center">Создайте дело или выберите существующее.</p></div>
+  </section>
+
+  <section id="view-review" class="view hidden"></section>
+
+  <section id="view-unmask" class="view hidden">
+    <div class="content narrow">
+      <h2>Вернуть данные</h2>
+      <p class="muted">Вставьте ответ Claude. Дело определяется по коду в тексте или выбирается вручную.</p>
+      <div class="row">
+        <label>Дело <select id="unmask-case"></select></label>
+      </div>
+      <textarea id="unmask-input" rows="12" placeholder="Ответ Claude с метками вида [ФИО_1:дат]"></textarea>
+      <div class="row">
+        <button id="unmask-run" class="primary">Вернуть данные</button>
+        <span id="unmask-status" class="muted"></span>
+      </div>
+      <div id="unmask-result" class="hidden">
+        <div class="legend"><span class="hl restored">восстановлено</span> <span class="hl uncertain">падеж не определён</span> <span class="hl unknown">неизвестная метка</span></div>
+        <div id="unmask-output" class="output"></div>
+        <div class="row">
+          <button id="unmask-copy">Копировать</button>
+          <button id="unmask-docx">Сохранить DOCX</button>
+          <button id="unmask-md">Сохранить MD</button>
+          <span id="unmask-saved" class="muted"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-settings" class="view hidden">
+    <div class="content narrow" id="settings-body"></div>
+  </section>
+</main>
+
+<div id="popover" class="popover hidden"></div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

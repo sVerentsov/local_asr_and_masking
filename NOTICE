@@ -1,0 +1,25 @@
+Транскрибатор — сторонние компоненты и лицензии
+
+Модели
+- GigaAM v3 (Сбер, SaluteDevices), ONNX-экспорт istupakov/gigaam-v3-onnx — MIT
+- T-one (Т-Технологии) — Apache License 2.0
+- Silero VAD — MIT
+- pyannote segmentation 3.0 (Hervé Bredin, pyannote.audio), ONNX-сборка sherpa-onnx — MIT
+- 3D-Speaker CAM++ (Alibaba DAMO / ModelScope) — Apache License 2.0
+- Natasha: navec, slovnet NER и морфология — MIT
+
+Библиотеки
+- onnx-asr — MIT
+- onnxruntime — MIT
+- sherpa-onnx (k2-fsa) — Apache License 2.0
+- PyAV и FFmpeg в его колёсах — BSD-3-Clause / LGPL-2.1+
+- pymorphy3 и словари OpenCorpora — MIT / CC-BY-SA 3.0
+- razdel, navec, slovnet — MIT
+- python-docx — MIT
+- FastAPI, Starlette — MIT; uvicorn — BSD-3-Clause
+- cryptography — Apache License 2.0 / BSD; argon2-cffi — MIT
+- charset-normalizer — MIT; platformdirs — MIT; NumPy — BSD-3-Clause
+- uv (Astral) — MIT / Apache License 2.0
+
+Если вместо pyannote segmentation 3.0 будет использована модель pyannote community-1, она распространяется
+под CC-BY-4.0 и требует атрибуции: «pyannote/speaker-diarization-community-1, pyannoteAI».

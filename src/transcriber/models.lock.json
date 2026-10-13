@@ -1,0 +1,40 @@
+{
+  "gigaam-v3-e2e-rnnt": {
+    "version": 1,
+    "sha256": {
+      "config.json": "0641fcf73f4af791c73f05083e38a658ff5dcbee3534a0c61396c10f4b97f0fe",
+      "v3_e2e_rnnt_encoder.int8.onnx": "4e0e076a6076cd110277e529b8ac8f32cd5297f7fbebad5341ae8ddb7d00817b",
+      "v3_e2e_rnnt_decoder.int8.onnx": "89014e134865615b91e037157e46e389b1271e6072460efc010ea08e61e23146",
+      "v3_e2e_rnnt_joint.int8.onnx": "ade116563dbf66e503b0994efab6b5861412743e52bf31c39fc3fffa3783d5d1",
+      "v3_e2e_rnnt_vocab.txt": "39abae20e692998290c574e606f11a9edef2902a1995463fcff63d1490cf22b7",
+      "LICENSE.txt": "f00de6715714c7a63d08639cdbfaa40224eefc407302614bd19f1a8b98c875aa"
+    }
+  },
+  "t-one": {
+    "version": 1,
+    "sha256": {
+      "config.json": "8a6272e21a05301afac2686f6066554151f9cd85bd0d817297339e8c3dc778a6",
+      "model.onnx": "707e4a282d5036304a0b8603ad83945840c3075f53c49911ef88c19bcc5a7d52"
+    }
+  },
+  "silero-vad": {
+    "version": 1,
+    "sha256": {
+      "config.json": "1094039d370c82889582ba739a3d1caac5754c8b3a17a66a534200c9f72086e2",
+      "silero_vad.onnx": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3",
+      "LICENSE.txt": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b"
+    }
+  },
+  "pyannote-segmentation": {
+    "version": 1,
+    "sha256": {
+      "sherpa-onnx-pyannote-segmentation-3-0.tar.bz2": "24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488"
+    }
+  },
+  "speaker-embedding": {
+    "version": 1,
+    "sha256": {
+      "3dspeaker_speech_campplus_sv_zh_en_16k-common_advanced.onnx": "aa3cfc16963a10586a9393f5035d6d6b57e98d358b347f80c2a30bf4f00ceba2"
+    }
+  }
+}
